@@ -6,9 +6,12 @@ from .internal import attribute_setter, ShapeDecorator, ShapeAttribute
 
 @ShapeDecorator
 class Box(Lines):
-    """Create a box primitive to draw the frame
+    """Box primitive.
 
-    Example: prim = draw.Box((Lx,Ly,Lz,xy,xz,yz), width, color)
+    Draws the box frame from the given box tuple.
+
+    Example:: 
+        prim = draw.Box((Lx,Ly,Lz,xy,xz,yz), width, color)
     
     """
 
@@ -51,6 +54,3 @@ class Box(Lines):
         kwargs_['start_points'] = start_points
         kwargs_['end_points'] = end_points
         super(Lines, self).__init__(**kwargs_)
-
-
-    

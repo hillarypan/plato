@@ -1,7 +1,8 @@
 from .Scene import Scene
 
-from .Box import Box
+
 from .Arrows2D import Arrows2D
+from .Box import Box
 from .Disks import Disks
 from .DiskUnions import DiskUnions
 from .Polygons import Polygons
