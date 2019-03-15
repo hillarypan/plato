@@ -359,3 +359,13 @@ def meshes():
 
     features = dict(ambient_light=.25, directional_light=(-.1, -.15, -1))
     return draw.Scene(prim, zoom=10, features=features)
+
+@register_scene
+def box_frame():
+    box = (5, 5, 6, 0.2, 0.4, 0)
+    width = 0.2
+    color = [0, 0, 0, 1]
+    prim = draw.Box(box=box, width=width, color=color)
+    features = dict(ambient_light=.25, directional_light=dict(lights=(-.1, -.15, -1)))
+    rotation = [ 9.9774611e-01,  2.3801494e-02, -6.2734932e-02,  5.5756618e-04]
+    return draw.Scene(prim, features=features, rotation=rotation, zoom=11)
