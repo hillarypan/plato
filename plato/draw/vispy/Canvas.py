@@ -300,10 +300,10 @@ uniform sampler2D planeTex;
 //user variables
 int samples = 16; //ao sample count
 
-float radius = 3.0; //ao radius
+float radius = 1.5; //ao radius
 float aoclamp = 0.25; //depth clamp - reduces haloing at screen edges
 bool noise = true; //use noise instead of pattern for sample dithering
-float noiseamount = 0.0002; //dithering amount
+float noiseamount = 0.001; //dithering amount
 
 float diffarea = 0.4; //self-shadowing reduction
 float gdisplace = 0.4; //gauss bell center
@@ -340,7 +340,8 @@ float doMist()
 float readDepth(in vec2 coord)
 {
     if (v_texcoord.x<0.0||v_texcoord.y<0.0) return 1.0;
-    return (2.0 * clip_planes.x) / (clip_planes.y + clip_planes.x - texture2D(planeTex, coord ).z * (clip_planes.y-clip_planes.x));
+    vec4 texread = texture2D(planeTex, coord);
+    return 2.0*texread.z - 1.0;
 }
 
 float compareDepths(in float depth1, in float depth2,inout int far)
